@@ -7,70 +7,48 @@ using System.Threading.Tasks;
 
 namespace ParaChute
 {
-    static class Config
-    {
-        public const int SCREEN_HEIGHT = 40;
-        public const int SCREEN_WIDTH = 150;
-    }
-
-
-    
-
     internal class Program
     {
         static void Main(string[] args)
         {
             Console.WindowHeight = Config.SCREEN_HEIGHT;
             Console.WindowWidth = Config.SCREEN_WIDTH;
+            ConsoleKeyInfo keyPressed;
+
 
             Plane plane = new Plane();
 
+            for (int z = 0; z < 8; z++)
+            {
+                plane.board(new Para("Bob " + z.ToString()));
+            }
+
             while (true)
             {
+                plane.update();
 
                 // Modifier ce que l'on *voit*
                 Console.Clear();
                 plane.draw();
-                plane.update(); 
+
+                if (Console.KeyAvailable) // L'utilisateur a pressé une touche
+                {
+                    keyPressed = Console.ReadKey(false);
+                    switch (keyPressed.Key)
+                    {
+                        case ConsoleKey.Escape:
+                            Environment.Exit(0);
+                            break;
+
+                        case ConsoleKey.Spacebar:
+
+                            break;
+                    }
+                }
 
                 Thread.Sleep(100);
 
             }
         }
-    }
-    class Plane
-    {
-        private int _x = 5;
-        private string[] view =
-        {
-            @" _                         ",
-            @"| \                        ",
-            @"|  \       ______          ",
-            @"--- \_____/  |_|_\____  |  ",
-            @"  \_______ --------- __>-} ",
-            @"        \_____|_____/   |  "
-        };
-        public void draw()
-        {
-
-            for (int i = 0; i < view.Length; i++)
-            {
-                Console.SetCursorPosition(_x, i);
-                Console.WriteLine(view[i]);
-            }
-        }
-        private int Cal(int _x)
-        {
-            _x += 1;
-            return _x;
-        }
-
-        public void update()
-        {
-            _x = Cal(this._x);
-        }
-
-
-
     }
 }
