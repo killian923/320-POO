@@ -14,8 +14,33 @@ namespace ParaChute
     }
 
 
+    
+
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WindowHeight = Config.SCREEN_HEIGHT;
+            Console.WindowWidth = Config.SCREEN_WIDTH;
+
+            Plane plane = new Plane();
+
+            while (true)
+            {
+
+                // Modifier ce que l'on *voit*
+                Console.Clear();
+                plane.draw();
+                plane.update(); 
+
+                Thread.Sleep(100);
+
+            }
+        }
+    }
     class Plane
     {
+        private int _x = 5;
         private string[] view =
         {
             @" _                         ",
@@ -27,27 +52,25 @@ namespace ParaChute
         };
         public void draw()
         {
+
             for (int i = 0; i < view.Length; i++)
             {
+                Console.SetCursorPosition(_x, i);
                 Console.WriteLine(view[i]);
             }
         }
-       
-    }
-
-    internal class Program
-    {
-        static void Main(string[] args)
+        private int Cal(int _x)
         {
-            Console.WindowHeight = Config.SCREEN_HEIGHT;
-            Console.WindowWidth = Config.SCREEN_WIDTH;
-
-            Plane plane = new Plane();
-
-            plane.draw();
-
-            Console.ReadLine();
+            _x += 1;
+            return _x;
         }
+
+        public void update()
+        {
+            _x = Cal(this._x);
+        }
+
+
+
     }
-  
 }
