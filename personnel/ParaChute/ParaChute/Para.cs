@@ -20,7 +20,9 @@ namespace ParaChute
      };
 
         public string name;
-        public int _x;
+        public int x;
+        public int altitude;
+
         public Para(string name)
         {
             this.name = name;
@@ -28,11 +30,7 @@ namespace ParaChute
 
         public void Draw()
         {
-            for (int i = 0; i < withoutParachute.Length; i++)
-            {
-                Console.SetCursorPosition(_x, i);
-                Console.WriteLine(withoutParachute[i]);
-            }
+           
         }
     }
 }

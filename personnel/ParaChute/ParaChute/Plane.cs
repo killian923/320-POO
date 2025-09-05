@@ -54,5 +54,13 @@ namespace ParaChute
         {
             this.parachutists.Add(para);
         }
+        internal Para dropParachutist()
+        {
+            Para parachutist = parachutists.First();
+            parachutists.Remove(parachutist);
+            parachutist.x = _x;
+            parachutist.altitude = this._altitude;
+            return parachutist;
+        }
     }
 }
