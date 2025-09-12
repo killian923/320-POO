@@ -31,8 +31,6 @@ namespace ParaChute
                 Console.Clear();
                 plane.draw();
 
-
-
                 if (Console.KeyAvailable) // L'utilisateur a pressé une touche
                 {
                     keyPressed = Console.ReadKey(false);
@@ -43,7 +41,6 @@ namespace ParaChute
                             break;
 
                         case ConsoleKey.Spacebar:
-
                             break;
                     }
                 }
