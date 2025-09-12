@@ -1,3 +1,5 @@
+using Drones;
+
 namespace Drones
 {
     internal static class Program
@@ -14,11 +16,17 @@ namespace Drones
 
             // Création de la flotte de drones
             List<Drone> fleet= new List<Drone>();
+            List<Building> ville = new List<Building>(); 
             Drone drone = new Drone("Damien", 50, 100);
+
+            Building building = new Building(700, 500, Color.DarkRed, 100, 50);
+
+            ville.Add(building);
             fleet.Add(drone);
 
             // Démarrage
-            Application.Run(new AirSpace(fleet));
+            Application.Run(new AirSpace(fleet , ville));
+
         }
     }
 }
