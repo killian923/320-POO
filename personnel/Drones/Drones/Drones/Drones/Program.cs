@@ -28,8 +28,6 @@ namespace Drones
 
             ville.Add(building);
             usine.Add(factory);
-
-
             fleet.Add(drone);
 
 
