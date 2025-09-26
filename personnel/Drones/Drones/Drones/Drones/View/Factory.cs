@@ -13,6 +13,7 @@ namespace Drones
         private int _PowerConsumption;
         private int _nombreDecimales = 2;
         private double _resultatArrondi;
+        private static bool alreadyDisplayed = false;
 
 
         public Factory(int x, int y, Color colorDef, int largeur, int profondeur) : base(x, y, colorDef, largeur, profondeur)
@@ -27,7 +28,12 @@ namespace Drones
         {
             Brush BuildingBrush = new SolidBrush(BuildingColor);
             drawingSpace.Graphics.FillRectangle(BuildingBrush, new Rectangle(X, Y, Largeur, Profondeur));
-            Console.WriteLine(_resultatArrondi);
+            if (!alreadyDisplayed)
+            {
+                Console.Write("Usine : ");
+                Console.WriteLine(_resultatArrondi);
+                alreadyDisplayed = true;
+            }
         }
       
     }

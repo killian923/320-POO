@@ -18,11 +18,5 @@ namespace Drones
         }
     }
     
-    public class Store : Building
-    {
-        public Store(int x, int y, Color colorDef, int largeur, int profondeur) : base(x, y, colorDef, largeur, profondeur)
-        {
-
-        }
-    }
+   
 }
