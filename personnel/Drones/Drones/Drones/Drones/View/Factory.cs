@@ -31,7 +31,7 @@ namespace Drones
             if (!alreadyDisplayed)
             {
                 Console.Write("Usine : ");
-                Console.WriteLine(_resultatArrondi);
+                Console.WriteLine(_resultatArrondi + " KwH");
                 alreadyDisplayed = true;
             }
         }
