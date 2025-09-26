@@ -32,6 +32,11 @@ namespace Drones
             this.fleet = fleet;
             this.ville = ville;
             this.usine = usine;
+
+            if (fleet.Count > 10)
+            {
+                throw new ArgumentException("Airspace ne peut pas contenir plus de 10 drones.");
+            }
         }
 
         // Affichage de la situation actuelle

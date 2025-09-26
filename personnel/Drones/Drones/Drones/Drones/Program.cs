@@ -19,7 +19,7 @@ namespace Drones
             List<Building> ville = new List<Building>(); 
             List<Factory> usine = new List<Factory>();
 
-            Drone drone = new Drone("Damien", 50, 100);
+            //Drone drone = new Drone("Damien", 50, 100);
 
             Building building = new Building(700, 500, Color.DarkRed, 100, 50);
 
@@ -28,11 +28,25 @@ namespace Drones
 
             ville.Add(building);
             usine.Add(factory);
-            fleet.Add(drone);
+            //fleet.Add(drone);
+            for (int i = 0; i < 10; i++)
+
+            {
+
+                fleet.Add(new Drone($"Damien{i}", 50, 50));
+
+            }
 
 
-            // Démarrage
-            Application.Run(new AirSpace(fleet , ville , usine));
+            try
+            {
+                // Démarrage
+                Application.Run(new AirSpace(fleet, ville, usine));
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
 
         }
     }
